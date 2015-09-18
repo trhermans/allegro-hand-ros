@@ -7,6 +7,8 @@
   <arg name="VISUALIZE" default="true" />
   <arg name="ZEROS" default="/home/felixd/proj/catkin-allegro-ros/src/allegro_hand_ros/allegro_hand_parameters/zero_files/zero_SAH020BL016.yaml" />
 
+  <arg name="SIM" />
+
 
   <include file="$(find allegro_hand_controllers)/launch/allegro_hand.launch">
     <arg name="HAND" value="$(arg HAND)"/>
@@ -15,6 +17,7 @@
     <arg name="RESPAWN" value="$(arg RESPAWN)"/>
     <arg name="VISUALIZE" value="$(arg VISUALIZE)"/>
     <arg name="ZEROS" value="$(arg ZEROS)"/>
+    <arg name="SIM" value="$(arg SIM)"/>
   </include>
 
 </launch>

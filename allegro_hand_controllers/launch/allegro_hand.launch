@@ -25,6 +25,8 @@
     <arg name="NUM" value="$(arg NUM)"/>
   </include>
 
+  <arg name="SIM" default="true" />
+
   <arg name="CONTROLLER" default="grasp"/> <!-- grasp, pd, velsat  -->
   <!-- Controllers include:
        -grasp *
@@ -64,7 +66,8 @@
         output="screen"
         clear_params="true"
         respawn="$(arg RESPAWN)"
-        args="$(arg POLLING)" >
+        args="$(arg POLLING)"
+        unless="$(arg SIM)">
 
     <!-- Remapping of topics into enumerated allegroHand_# namespace -->
     <remap from="/allegroHand/joint_states" to="/allegroHand_$(arg NUM)/joint_states"/>

@@ -52,6 +52,14 @@
 
     <!-- ============================================================================= -->
 
+    <!-- Used for fixing robot to Gazebo 'base_link' -->
+    <link name="world"/>
+
+    <joint name="fixed" type="fixed">
+      <parent link="world"/>
+      <child link="base_link"/>
+    </joint>
+
     <!-- BASE -->
     <link name="base_link">
         <visual>
@@ -70,6 +78,15 @@
                 <box size="0.0408 0.1130 ${base_link_z}"/>
             </geometry>
         </collision>
+
+        <inertial>
+          <origin xyz="0 0 ${base_link_z/2}" rpy="0 0 0"/>
+          <mass value="1"/>
+          <inertia
+	      ixx="1.0" ixy="0.0" ixz="0.0"
+	      iyy="1.0" iyz="0.0"
+	      izz="1.0"/>
+        </inertial>
     </link>
 
     <!-- ============================================================================= -->
