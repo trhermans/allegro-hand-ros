@@ -5,10 +5,9 @@
   <arg name="CONTROLLER" default="grasp" />
   <arg name="RESPAWN" default="true" />
   <arg name="VISUALIZE" default="true" />
-  <arg name="ZEROS" default="/home/felixd/proj/catkin-allegro-ros/src/allegro_hand_ros/allegro_hand_parameters/zero_files/zero_SAH020BL016.yaml" />
-
   <arg name="SIM" />
-
+  <arg name="ZEROS" default="$(find allegro_hand_parameters)/zero_files/zero_SAH020BL016.yaml" />
+  <arg name="CAN_DEVICE" default="/dev/pcanusb1" />
 
   <include file="$(find allegro_hand_controllers)/launch/allegro_hand.launch">
     <arg name="HAND" value="$(arg HAND)"/>
@@ -18,6 +17,7 @@
     <arg name="VISUALIZE" value="$(arg VISUALIZE)"/>
     <arg name="ZEROS" value="$(arg ZEROS)"/>
     <arg name="SIM" value="$(arg SIM)"/>
+    <arg name="CAN_DEVICE" value="$(arg CAN_DEVICE)"/>
   </include>
 
 </launch>

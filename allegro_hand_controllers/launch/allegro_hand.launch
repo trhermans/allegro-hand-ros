@@ -52,12 +52,17 @@
   <!-- yaml param files for your hand can be found in parameters/zero_files/ -->
   <arg name="ZEROS" default="$(arg PARAMS_DIR)/zero.yaml"/>
 
-  <param name="/robot_description"
-         textfile="$(find allegro_hand_description)/allegro_hand_description_$(arg HAND).urdf"/>
-  <param name="/allegroHand_$(arg NUM)/robot_description"
-         textfile="$(find allegro_hand_description)/allegro_hand_description_$(arg HAND).urdf"/>
+  <!--If true, respawn the controller if it dies. -->
+  <arg name="RESPAWN" default="false"/>
 
-  <arg name="RESPAWN" default="false"/> <!--If true, respawn the controller if it dies. -->
+  <!-- Load the robot description directly from the xacro file. (NOTE: store it
+       in two parameter names.) -->
+  <param name="/robot_description"
+         command="$(find xacro)/xacro.py
+                  $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro"/>
+  <param name="/allegroHand_$(arg NUM)/robot_description"
+         command="$(find xacro)/xacro.py
+                  $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro"/>
 
   <!-- Allegro Hand controller and communication node -->
   <node name="allegroHand_$(arg HAND)_$(arg NUM)"
