@@ -8,7 +8,7 @@ hand_info:
  robot_name: 'Allegro Hand'
  manufacturer: 'SimLab Co. Ltd.'
  origin: 'Seoul, South Korea'
- serial: 'SAH030C033R'
+ serial: 'SAH030D038R'
  version: 3.0
 
 zero:
