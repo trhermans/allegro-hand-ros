@@ -37,3 +37,4 @@
 # SVN
 *.svn/
 
+/CMakeLists.txt
