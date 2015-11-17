@@ -34,7 +34,7 @@ echo -e "\n\nBuilding the [[$HAND]] Allegro Hand URDF...\n"
 
 rosrun xacro xacro.py allegro_hand_description_$hand.xacro -o allegro_hand_description_$hand.urdf
 
-rosrun urdf check_urdf allegro_hand_description_$hand.urdf 
+check_urdf allegro_hand_description_$hand.urdf 
 
 echo -e "\n"
 
@@ -44,7 +44,7 @@ echo -e "\n"
 
 if [ "$2" == "1" ] 
 then
-	rosrun urdf_parser urdf_to_graphiz allegro_hand_description_$hand.urdf 
+	urdf_to_graphiz allegro_hand_description_$hand.urdf 
 	rm *.gv
 	echo -e "Removed file allegro_hand_$hand.gv\n"
 	echo -e "Opening graph pdf...\n\n"
