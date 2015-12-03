@@ -26,12 +26,12 @@
   <!-- The inclusion of which_hand in the zero.yaml file has been deprecated.
        Which hand (left/right) must now be specified as an argument when launching the Allegro Hand
        as an input for both the robot_description and for the grasping library controllers. -->
-  <arg name="HAND"/>
+  <arg name="HAND" default="right" />
   <arg name="NUM" default='0'/>
 
   <!-- Visualization with rviz, only if arg VISUALIZE is set to true. Default is
        false, the allegro_viz.launch can be started separated. -->
-  <arg name ="VISUALIZE" default="false" />
+  <arg name ="VISUALIZE" default="true" />
   <include file="$(find allegro_hand_controllers)/launch/allegro_viz.launch"
            if="$(arg VISUALIZE)">
     <arg name="NUM" value="$(arg NUM)"/>
