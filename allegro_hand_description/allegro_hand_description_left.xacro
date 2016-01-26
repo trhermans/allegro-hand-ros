@@ -53,7 +53,7 @@
     <!-- ============================================================================= -->
 
     <!-- BASE -->
-    <link name="base_link">
+    <link name="palm_link">
         <visual>
             <geometry>
                 <mesh filename="package://allegro_hand_description/meshes/base_link_left.STL"/>
@@ -140,7 +140,7 @@
             <limit effort="0" velocity="0"
                    lower="${limit_0_t_low-joint_safety_margin}"
                    upper="${limit_0_t_up-joint_safety_margin}"/>
-            <parent link="base_link"/>
+            <parent link="palm_link"/>
             <child link="link_${finger_num*4+0}"/>
             <origin rpy="${finger_angle_r} ${finger_angle_p} ${finger_angle_y}"
                     xyz="${offset_origin_x} ${offset_origin_y} ${offset_origin_z}"/>
@@ -285,7 +285,7 @@
             <limit effort="0" velocity="0"
                    lower="${limit_0_low+joint_safety_margin}"
                    upper="${limit_0_up-joint_safety_margin}"/>
-            <parent link="base_link"/>
+            <parent link="palm_link"/>
             <child link="link_${finger_num*4+0}"/>
             <origin rpy="${finger_angle_r} 0 0"
                     xyz="${offset_origin_x} ${offset_origin_y} ${offset_origin_z}"/>
