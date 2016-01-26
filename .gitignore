@@ -38,3 +38,4 @@
 *.svn/
 
 /CMakeLists.txt
+/in_hand_manipulation/
