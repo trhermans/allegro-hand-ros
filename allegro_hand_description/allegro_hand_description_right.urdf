@@ -158,7 +158,7 @@
   </joint>
 
   <!-- [FINGER TIP] -->
-  <link name="link_3.0_tip">
+  <link name="index_tip">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes/link_3.0_tip.STL"/>
@@ -180,7 +180,7 @@
   </link>
   <joint name="joint_3.0_tip" type="fixed">
     <parent link="link_3.0"/>
-    <child link="link_3.0_tip"/>
+    <child link="index_tip"/>
     <origin rpy="0 0 0" xyz="0 0 0.0267"/>
   </joint>
 
@@ -304,7 +304,7 @@
   </joint>
 
   <!-- [FINGER TIP] -->
-  <link name="link_7.0_tip">
+  <link name="middle_tip">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes/link_3.0_tip.STL"/>
@@ -326,7 +326,7 @@
   </link>
   <joint name="joint_7.0_tip" type="fixed">
     <parent link="link_7.0"/>
-    <child link="link_7.0_tip"/>
+    <child link="middle_tip"/>
     <origin rpy="0 0 0" xyz="0 0 0.0267"/>
   </joint>
 
@@ -450,7 +450,7 @@
   </joint>
 
   <!-- [FINGER TIP] -->
-  <link name="link_11.0_tip">
+  <link name="ring_tip">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes/link_3.0_tip.STL"/>
@@ -472,7 +472,7 @@
   </link>
   <joint name="joint_11.0_tip" type="fixed">
     <parent link="link_11.0"/>
-    <child link="link_11.0_tip"/>
+    <child link="ring_tip"/>
     <origin rpy="0 0 0" xyz="0 0 0.0267"/>
   </joint>
 
@@ -604,7 +604,7 @@
   </joint>
 
   <!-- [FINGER TIP] -->
-  <link name="link_15.0_tip">
+  <link name="thumb_tip">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes/link_15.0_tip.STL"/>
@@ -627,7 +627,7 @@
   </link>
   <joint name="joint_15.0_tip" type="fixed">
     <parent link="link_15.0"/>
-    <child link="link_15.0_tip"/>
+    <child link="thumb_tip"/>
     <origin rpy="0 0 0" xyz="0 0 0.0423"/>
   </joint>
 
