@@ -84,6 +84,7 @@
     <remap from="/allegroHand/joint_states" to="/allegroHand_$(arg NUM)/joint_states"/>
     <remap from="/allegroHand/joint_cmd" to="/allegroHand_$(arg NUM)/joint_cmd"/>
     <remap from="/allegroHand/lib_cmd" to="/allegroHand_$(arg NUM)/lib_cmd"/>
+    <remap from="/allegroHand/torque_cmd" to="/allegroHand_$(arg NUM)/torque_cmd"/>
     <remap from="/allegroHand/envelop_torque" to="/allegroHand_$(arg NUM)/envelop_torque"/>
     <remap from="/allegroHand/joint_current_states" to="/allegroHand_$(arg NUM)/joint_current_states"/>
     <remap from="/allegroHand/joint_desired_states" to="/allegroHand_$(arg NUM)/joint_desired_states"/>
