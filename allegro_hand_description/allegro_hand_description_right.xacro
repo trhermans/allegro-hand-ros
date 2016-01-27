@@ -77,6 +77,7 @@
     <!-- RIGHT HAND due to which finger is number 0 -->
     <!-- for LEFT HAND switch the sign of the **offset_origin_y** and **finger_angle_r** parameters-->
     <xacro:finger
+	    finger_name="index"
             finger_num="0"
             offset_origin_x="${offset_origin_x_const}"
             offset_origin_y="${offset_origin_y_const}"
@@ -84,6 +85,7 @@
             finger_angle_r="-${5.0*DEG2RAD}"
             />
     <xacro:finger
+	    finger_name="middle"
             finger_num="1"
             offset_origin_x="${offset_origin_x_const}"
             offset_origin_y="0"
@@ -91,6 +93,7 @@
             finger_angle_r="0.0"
             />
     <xacro:finger
+	    finger_name="ring"
             finger_num="2"
             offset_origin_x="${offset_origin_x_const}"
             offset_origin_y="-${offset_origin_y_const}"
@@ -99,6 +102,7 @@
             />
     <!-- THUMB -->
     <xacro:thumb_right
+	    finger_name="thumb"
             finger_num="3"
             offset_origin_x="-0.0182"
             offset_origin_y="0.019333"
@@ -112,10 +116,10 @@
 
     <!-- THUMB MACRO -->
     <xacro:macro name="thumb_right"
-                 params="finger_num offset_origin_x offset_origin_y offset_origin_z finger_angle_r finger_angle_p finger_angle_y">
+                 params="finger_name finger_num offset_origin_x offset_origin_y offset_origin_z finger_angle_r finger_angle_p finger_angle_y">
 
         <!-- [LINK 12] -->
-        <link name="link_${finger_num*4+0}">
+        <link name="${finger_name}_link_0">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_12.0_right.STL"/>
@@ -133,19 +137,19 @@
             </collision>
         </link>
 
-        <joint name="joint_${finger_num*4+0}" type="revolute">
+        <joint name="${finger_name}_joint_0" type="revolute">
             <axis xyz="-1 0 0"/>
             <limit effort="0" velocity="0"
                    lower="${limit_0_t_low-joint_safety_margin}"
                    upper="${limit_0_t_up-joint_safety_margin}"/>
             <parent link="palm_link"/>
-            <child link="link_${finger_num*4+0}"/>
+            <child link="${finger_name}_link_0"/>
             <origin rpy="${finger_angle_r} ${finger_angle_p} ${finger_angle_y}"
                     xyz="${offset_origin_x} ${offset_origin_y} ${offset_origin_z}"/>
         </joint>
 
         <!-- [LINK 13] -->
-        <link name="link_${finger_num*4+1}">
+        <link name="${finger_name}_link_1">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_13.0.STL"/>
@@ -163,18 +167,18 @@
             </collision>
         </link>
 
-        <joint name="joint_${finger_num*4+1}" type="revolute">
+        <joint name="${finger_name}_joint_1" type="revolute">
             <axis xyz="0 0 1"/>
             <limit effort="0" velocity="0"
                    lower="${limit_1_t_low+joint_safety_margin}"
                    upper="${limit_1_t_up-joint_safety_margin}"/>
-            <parent link="link_${finger_num*4+0}"/>
-            <child link="link_${finger_num*4+1}"/>
+            <parent link="${finger_name}_link_0"/>
+            <child link="${finger_name}_link_1"/>
             <origin xyz="-0.027 0.005 0.0399"/>
         </joint>
 
         <!-- [LINK 14] -->
-        <link name="link_${finger_num*4+2}">
+        <link name="${finger_name}_link_2">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_14.0.STL"/>
@@ -191,18 +195,18 @@
             </collision>
         </link>
 
-        <joint name="joint_${finger_num*4+2}" type="revolute">
+        <joint name="${finger_name}_joint_2" type="revolute">
             <axis xyz="0 1 0"/>
             <limit effort="0" velocity="0"
                    lower="${limit_2_t_low+joint_safety_margin}"
                    upper="${limit_2_t_up-joint_safety_margin}"/>
-            <parent link="link_${finger_num*4+1}"/>
-            <child link="link_${finger_num*4+2}"/>
+            <parent link="${finger_name}_link_1"/>
+            <child link="${finger_name}_link_2"/>
             <origin xyz="0 0 ${link1_t_z}"/>
         </joint>
 
         <!-- [LINK 15] -->
-        <link name="link_${finger_num*4+3}">
+        <link name="${finger_name}_link_3">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_15.0.STL"/>
@@ -219,18 +223,18 @@
             </collision>
         </link>
 
-        <joint name="joint_${finger_num*4+3}" type="revolute">
+        <joint name="${finger_name}_joint_3" type="revolute">
             <axis xyz="0 1 0"/>
             <limit effort="0" velocity="0"
                    lower="${limit_3_t_low+joint_safety_margin}"
                    upper="${limit_3_t_up-joint_safety_margin}"/>
-            <parent link="link_${finger_num*4+2}"/>
-            <child link="link_${finger_num*4+3}"/>
+            <parent link="${finger_name}_link_2"/>
+            <child link="${finger_name}_link_3"/>
             <origin xyz="0 0 ${link2_t_z}"/>
         </joint>
 
         <!-- [FINGER TIP] -->
-        <link name="link_${finger_num*4+3}_tip">
+        <link name="${finger_name}_tip">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_15.0_tip.STL"/>
@@ -248,9 +252,9 @@
             </collision>
         </link>
 
-        <joint name="joint_${finger_num*4+3}_tip" type="fixed">
-            <parent link="link_${finger_num*4+3}"/>
-            <child link="link_${finger_num*4+3}_tip"/>
+        <joint name="${finger_name}_tip_joint" type="fixed">
+            <parent link="${finger_name}_link_3"/>
+            <child link="${finger_name}_tip"/>
             <origin rpy="0 0 0" xyz="0 0 ${link3_t_z-fingerTip_r}"/>
         </joint>
     </xacro:macro>
@@ -258,7 +262,7 @@
 
     <!-- THREE FINGER MACRO -->
     <xacro:macro name="finger"
-                 params="finger_num offset_origin_x offset_origin_y offset_origin_z finger_angle_r">
+                 params="finger_name finger_num offset_origin_x offset_origin_y offset_origin_z finger_angle_r">
 
         <!-- [LINK 0, 4, 8] -->
         <link name="link_${finger_num*4+0}">

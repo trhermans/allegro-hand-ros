@@ -7,7 +7,9 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /RobotModel1/Status1
         - /TF1
+        - /TF1/Status1
       Splitter Ratio: 0.503185
     Tree Height: 705
   - Class: rviz/Selection
@@ -84,31 +86,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        link_12.0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_13.0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_14.0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_15.0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_15.0_tip:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         link_2.0:
           Alpha: 1
           Show Axes: false
@@ -160,6 +137,31 @@ Visualization Manager:
           Show Trail: false
           Value: true
         palm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        thumb_tip:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -185,16 +187,6 @@ Visualization Manager:
           Value: true
         link_11.0_tip:
           Value: true
-        link_12.0:
-          Value: true
-        link_13.0:
-          Value: true
-        link_14.0:
-          Value: true
-        link_15.0:
-          Value: true
-        link_15.0_tip:
-          Value: true
         link_2.0:
           Value: true
         link_3.0:
@@ -217,6 +209,10 @@ Visualization Manager:
           Value: true
         palm_link:
           Value: true
+        thumb_link_3:
+          Value: true
+        thumb_tip:
+          Value: true
       Marker Scale: 0.1
       Name: TF
       Show Arrows: true
@@ -229,12 +225,6 @@ Visualization Manager:
               link_2.0:
                 link_3.0:
                   link_3.0_tip:
-                    {}
-          link_12.0:
-            link_13.0:
-              link_14.0:
-                link_15.0:
-                  link_15.0_tip:
                     {}
           link_4.0:
             link_5.0:
@@ -270,7 +260,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.784224
+      Distance: 0.363212
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
@@ -282,10 +272,10 @@ Visualization Manager:
         Z: 4.22006e-10
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.410205
+      Pitch: 0.0702051
       Target Frame: palm_link
       Value: Orbit (rviz)
-      Yaw: 5.84357
+      Yaw: 5.58355
     Saved: ~
 Window Geometry:
   Displays:
@@ -303,5 +293,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1232
-  X: 64
+  X: 54
   Y: 14

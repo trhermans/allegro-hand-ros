@@ -61,14 +61,12 @@
   <!--If true, respawn the controller if it dies. -->
   <arg name="RESPAWN" default="false"/>
 
-  <!-- Load the robot description directly from the xacro file. (NOTE: store it
-       in two parameter names.) -->
   <param name="/robot_description"
-         command="$(find xacro)/xacro.py
-                  $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro"/>
+         command="cat
+                  $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).urdf"/>
   <param name="/allegroHand_$(arg NUM)/robot_description"
-         command="$(find xacro)/xacro.py
-                  $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro"/>
+         command="cat
+                  $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).urdf"/>
 
   <!-- Allegro Hand controller and communication node -->
   <node name="allegroHand_$(arg HAND)_$(arg NUM)"

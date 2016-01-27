@@ -478,7 +478,7 @@
 
   <!-- THUMB -->
   <!-- [LINK 12] -->
-  <link name="link_12.0">
+  <link name="thumb_link_0">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes/link_12.0_right.STL"/>
@@ -500,17 +500,17 @@
 	       iyz="6.8068e-06" izz="1.89273333333e-05" />
     </inertial>
   </link>
-  <joint name="joint_12.0" type="revolute">
+  <joint name="thumb_joint_0" type="revolute">
     <axis xyz="-1 0 0"/>
     <limit effort="15" lower="0.263" upper="1.396" velocity="7"/>
     <parent link="palm_link"/>
-    <child link="link_12.0"/>
+    <child link="thumb_link_0"/>
     <origin rpy="0 -1.65806278845 -1.5707963259" xyz="-0.0182 0.019333 -0.045987"/>
     <dynamics damping="3" friction="10"/>
   </joint>
 
   <!-- [LINK 13] -->
-  <link name="link_13.0">
+  <link name="thumb_link_1">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes/link_13.0.STL"/>
@@ -532,17 +532,17 @@
 	       iyz="1.44808125e-06" izz="4.24250866667e-06" />
     </inertial>
   </link>
-  <joint name="joint_13.0" type="revolute">
+  <joint name="thumb_joint_1" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort="15" lower="-0.105" upper="1.163" velocity="7"/>
-    <parent link="link_12.0"/>
-    <child link="link_13.0"/>
+    <parent link="thumb_link_0"/>
+    <child link="thumb_link_1"/>
     <origin xyz="-0.027 0.005 0.0399"/>
     <dynamics damping="3" friction="5"/>
   </joint>
 
   <!-- [LINK 14] -->
-  <link name="link_14.0">
+  <link name="thumb_link_2">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes/link_14.0.STL"/>
@@ -563,17 +563,17 @@
 	       iyz="1.342825e-05" izz="4.30439933333e-05" />
     </inertial>
   </link>
-  <joint name="joint_14.0" type="revolute">
+  <joint name="thumb_joint_2" type="revolute">
     <axis xyz="0 1 0"/>
     <limit effort="15" lower="-0.189" upper="1.644" velocity="7"/>
-    <parent link="link_13.0"/>
-    <child link="link_14.0"/>
+    <parent link="thumb_link_1"/>
+    <child link="thumb_link_2"/>
     <origin xyz="0 0 0.0177"/>
     <dynamics damping="3" friction="10"/>
   </joint>
 
   <!-- [LINK 15] -->
-  <link name="link_15.0">
+  <link name="thumb_link_3">
     <visual>
       <geometry>
         <mesh filename="package://allegro_hand_description/meshes/link_15.0.STL"/>
@@ -594,11 +594,11 @@
 	       iyz="1.1283525e-5" izz="3.29223173333e-05" />
     </inertial>
   </link>
-  <joint name="joint_15.0" type="revolute">
+  <joint name="thumb_joint_3" type="revolute">
     <axis xyz="0 1 0"/>
     <limit effort="15" lower="-0.162" upper="1.719" velocity="7"/>
-    <parent link="link_14.0"/>
-    <child link="link_15.0"/>
+    <parent link="thumb_link_2"/>
+    <child link="thumb_link_3"/>
     <origin xyz="0 0 0.0514"/>
     <dynamics damping="3" friction="12"/>
   </joint>
@@ -625,8 +625,8 @@
       <inertia ixx="9.68e-07" ixy="0" ixz="0" iyy="9.68e-07" iyz="0" izz="9.68e-07" />
     </inertial>
   </link>
-  <joint name="joint_15.0_tip" type="fixed">
-    <parent link="link_15.0"/>
+  <joint name="thumb_tip_joint" type="fixed">
+    <parent link="thumb_link_3"/>
     <child link="thumb_tip"/>
     <origin rpy="0 0 0" xyz="0 0 0.0423"/>
   </joint>
@@ -652,10 +652,10 @@
     <link name="link_10.0" servoP="600" servoI="0" servoD="15"/>
     <link name="link_11.0" servoP="1000" servoI="0" servoD="15"/>
 
-    <link name="link_12.0" servoP="1000" servoI="0" servoD="30"/>
-    <link name="link_13.0" servoP="1000" servoI="0" servoD="20"/>
-    <link name="link_14.0" servoP="1000" servoI="0" servoD="20"/>
-    <link name="link_15.0" servoP="1000" servoI="0" servoD="15"/>
+    <link name="thumb_link_0" servoP="1000" servoI="0" servoD="30"/>
+    <link name="thumb_link_1" servoP="1000" servoI="0" servoD="20"/>
+    <link name="thumb_link_2" servoP="1000" servoI="0" servoD="20"/>
+    <link name="thumb_link_3" servoP="1000" servoI="0" servoD="15"/>
 
   </klampt>
 </robot>
