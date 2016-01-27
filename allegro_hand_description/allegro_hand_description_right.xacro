@@ -265,7 +265,7 @@
                  params="finger_name finger_num offset_origin_x offset_origin_y offset_origin_z finger_angle_r">
 
         <!-- [LINK 0, 4, 8] -->
-        <link name="link_${finger_num*4+0}">
+        <link name="${finger_name}_link_0">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_0.0.STL"/>
@@ -287,13 +287,13 @@
                    lower="${limit_0_low+joint_safety_margin}"
                    upper="${limit_0_up-joint_safety_margin}"/>
             <parent link="palm_link"/>
-            <child link="link_${finger_num*4+0}"/>
+            <child link="${finger_name}_link_0"/>
             <origin rpy="${finger_angle_r} 0 0"
                     xyz="${offset_origin_x} ${offset_origin_y} ${offset_origin_z}"/>
         </joint>
 
         <!-- [LINK 1, 5, 9] -->
-        <link name="link_${finger_num*4+1}">
+        <link name="${finger_name}_link_1">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_1.0.STL"/>
@@ -314,13 +314,13 @@
                    lower="${limit_1_low+joint_safety_margin}"
                    upper="${limit_1_up-joint_safety_margin}"/>
             <axis xyz="0 1 0"/>
-            <parent link="link_${finger_num*4+0}"/>
-            <child link="link_${finger_num*4+1}"/>
+            <parent link="${finger_name}_link_0"/>
+            <child link="${finger_name}_link_1"/>
             <origin xyz="0 0 ${link0_z}"/>
         </joint>
 
         <!-- [LINK 2, 6, 10]-->
-        <link name="link_${finger_num*4+2}">
+        <link name="${finger_name}_link_2">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_2.0.STL"/>
@@ -341,13 +341,13 @@
             <limit effort="0" velocity="0"
                    lower="${limit_2_low+joint_safety_margin}"
                    upper="${limit_2_up-joint_safety_margin}"/>
-            <parent link="link_${finger_num*4+1}"/>
-            <child link="link_${finger_num*4+2}"/>
+            <parent link="${finger_name}_link_1"/>
+            <child link="${finger_name}_link_2"/>
             <origin xyz="0 0 ${link1_z}"/>
         </joint>
 
         <!-- [LINK 3, 7, 11] -->
-        <link name="link_${finger_num*4+3}">
+        <link name="${finger_name}_link_3">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_3.0.STL"/>
@@ -368,13 +368,13 @@
             <limit effort="0" velocity="0"
                    lower="${limit_3_low+joint_safety_margin}"
                    upper="${limit_3_up-joint_safety_margin}"/>
-            <parent link="link_${finger_num*4+2}"/>
-            <child link="link_${finger_num*4+3}"/>
+            <parent link="${finger_name}_link_2"/>
+            <child link="${finger_name}_link_3"/>
             <origin xyz="0 0 ${link2_z}"/>
         </joint>
 
         <!-- [FINGER TIP] -->
-        <link name="link_${finger_num*4+3}_tip">
+        <link name="${finger_name}_tip">
             <visual>
                 <geometry>
                     <mesh filename="package://allegro_hand_description/meshes/link_3.0_tip.STL"/>
@@ -392,8 +392,8 @@
         </link>
 
         <joint name="joint_${finger_num*4+3}_tip" type="fixed">
-            <parent link="link_${finger_num*4+3}"/>
-            <child link="link_${finger_num*4+3}_tip"/>
+            <parent link="${finger_name}_link_3"/>
+            <child link="${finger_name}_tip"/>
             <origin rpy="0 0 0" xyz="0 0 ${link3_z-fingerTip_r}"/>
         </joint>
     </xacro:macro>

@@ -9,9 +9,9 @@
 
 std::string jointNames[DOF_JOINTS] =
         {
-                "joint_0.0", "joint_1.0", "joint_2.0", "joint_3.0",
-                "joint_4.0", "joint_5.0", "joint_6.0", "joint_7.0",
-                "joint_8.0", "joint_9.0", "joint_10.0", "joint_11.0",
+                "index_joint_0", "index_joint_1", "index_joint_2", "index_joint_3",
+                "middle_joint_0", "middle_joint_1", "middle_joint_2", "middle_joint_3",
+                "ring_joint_0", "ring_joint_1", "ring_joint_2", "ring_joint_3",
                 "thumb_joint_0", "thumb_joint_1", "thumb_joint_2", "thumb_joint_3"
         };
 
