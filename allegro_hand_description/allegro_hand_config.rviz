@@ -7,9 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
-        - /RobotModel1/Status1
         - /TF1
-        - /TF1/Status1
       Splitter Ratio: 0.503185
     Tree Height: 705
   - Class: rviz/Selection
@@ -61,82 +59,82 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        link_0.0:
+        index_link_0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_1.0:
+        index_link_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_10.0:
+        index_link_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_11.0:
+        index_link_3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_11.0_tip:
+        index_tip:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_2.0:
+        middle_link_0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_3.0:
+        middle_link_1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_3.0_tip:
+        middle_link_2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_4.0:
+        middle_link_3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link_5.0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_6.0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_7.0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_7.0_tip:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_8.0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_9.0:
+        middle_tip:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         palm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_link_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_link_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_link_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_link_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ring_tip:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -177,37 +175,43 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        link_0.0:
+        index_link_0:
           Value: true
-        link_1.0:
+        index_link_1:
           Value: true
-        link_10.0:
+        index_link_2:
           Value: true
-        link_11.0:
+        index_link_3:
           Value: true
-        link_11.0_tip:
+        index_tip:
           Value: true
-        link_2.0:
+        middle_link_0:
           Value: true
-        link_3.0:
+        middle_link_1:
           Value: true
-        link_3.0_tip:
+        middle_link_2:
           Value: true
-        link_4.0:
+        middle_link_3:
           Value: true
-        link_5.0:
-          Value: true
-        link_6.0:
-          Value: true
-        link_7.0:
-          Value: true
-        link_7.0_tip:
-          Value: true
-        link_8.0:
-          Value: true
-        link_9.0:
+        middle_tip:
           Value: true
         palm_link:
+          Value: true
+        ring_link_0:
+          Value: true
+        ring_link_1:
+          Value: true
+        ring_link_2:
+          Value: true
+        ring_link_3:
+          Value: true
+        ring_tip:
+          Value: true
+        thumb_link_0:
+          Value: true
+        thumb_link_1:
+          Value: true
+        thumb_link_2:
           Value: true
         thumb_link_3:
           Value: true
@@ -220,23 +224,29 @@ Visualization Manager:
       Show Names: true
       Tree:
         palm_link:
-          link_0.0:
-            link_1.0:
-              link_2.0:
-                link_3.0:
-                  link_3.0_tip:
+          index_link_0:
+            index_link_1:
+              index_link_2:
+                index_link_3:
+                  index_tip:
                     {}
-          link_4.0:
-            link_5.0:
-              link_6.0:
-                link_7.0:
-                  link_7.0_tip:
+          middle_link_0:
+            middle_link_1:
+              middle_link_2:
+                middle_link_3:
+                  middle_tip:
                     {}
-          link_8.0:
-            link_9.0:
-              link_10.0:
-                link_11.0:
-                  link_11.0_tip:
+          ring_link_0:
+            ring_link_1:
+              ring_link_2:
+                ring_link_3:
+                  ring_tip:
+                    {}
+          thumb_link_0:
+            thumb_link_1:
+              thumb_link_2:
+                thumb_link_3:
+                  thumb_tip:
                     {}
       Update Interval: 0
       Value: true
@@ -260,7 +270,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.363212
+      Distance: 0.696418
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
@@ -272,10 +282,10 @@ Visualization Manager:
         Z: 4.22006e-10
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.0702051
+      Pitch: 0.165205
       Target Frame: palm_link
       Value: Orbit (rviz)
-      Yaw: 5.58355
+      Yaw: 6.19355
     Saved: ~
 Window Geometry:
   Displays:
@@ -293,5 +303,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1232
-  X: 54
+  X: 624
   Y: 14
