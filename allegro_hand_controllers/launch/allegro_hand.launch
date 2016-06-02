@@ -34,10 +34,10 @@
   <arg name ="VISUALIZE" default="true" />
   <include file="$(find allegro_hand_controllers)/launch/allegro_viz.launch"
            if="$(arg VISUALIZE)">
-    <arg name="NUM" value="$(arg NUM)"/>
+    <arg name="NUM" value="$(arg HAND)"/>
   </include>
 
-  <arg name="CONTROLLER" default="grasp"/> <!-- grasp, pd, velsat  -->
+  <arg name="CONTROLLER" default="pd"/> <!-- grasp, pd, velsat  -->
   <!-- Controllers include:
        -grasp *
        -pd
@@ -64,12 +64,12 @@
   <param name="/robot_description"
          command="cat
                   $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).urdf"/>
-  <param name="/allegroHand_$(arg NUM)/robot_description"
+  <param name="/allegro_hand_$(arg HAND)/robot_description"
          command="cat
                   $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).urdf"/>
 
   <!-- Allegro Hand controller and communication node -->
-  <node name="allegroHand_$(arg HAND)_$(arg NUM)"
+  <node name="allegro_hand_$(arg HAND)_$(arg HAND)"
         pkg="allegro_hand_controllers"
         type="allegro_node_$(arg CONTROLLER)"
         output="screen"
@@ -79,13 +79,13 @@
         args="$(arg POLLING)" >
 
     <!-- Remapping of topics into enumerated allegroHand_# namespace -->
-    <remap from="/allegroHand/joint_states" to="/allegroHand_$(arg NUM)/joint_states"/>
-    <remap from="/allegroHand/joint_cmd" to="/allegroHand_$(arg NUM)/joint_cmd"/>
-    <remap from="/allegroHand/lib_cmd" to="/allegroHand_$(arg NUM)/lib_cmd"/>
-    <remap from="/allegroHand/torque_cmd" to="/allegroHand_$(arg NUM)/torque_cmd"/>
-    <remap from="/allegroHand/envelop_torque" to="/allegroHand_$(arg NUM)/envelop_torque"/>
-    <remap from="/allegroHand/joint_current_states" to="/allegroHand_$(arg NUM)/joint_current_states"/>
-    <remap from="/allegroHand/joint_desired_states" to="/allegroHand_$(arg NUM)/joint_desired_states"/>
+    <remap from="/allegroHand/joint_states" to="/allegro_hand_$(arg HAND)/joint_states"/>
+    <remap from="/allegroHand/joint_cmd" to="/allegro_hand_$(arg HAND)/joint_cmd"/>
+    <remap from="/allegroHand/lib_cmd" to="/allegro_hand_$(arg HAND)/lib_cmd"/>
+    <remap from="/allegroHand/torque_cmd" to="/allegro_hand_$(arg HAND)/torque_cmd"/>
+    <remap from="/allegroHand/envelop_torque" to="/allegro_hand_$(arg HAND)/envelop_torque"/>
+    <remap from="/allegroHand/joint_current_states" to="/allegro_hand_$(arg HAND)/joint_current_states"/>
+    <remap from="/allegroHand/joint_desired_states" to="/allegro_hand_$(arg HAND)/joint_desired_states"/>
 
     <!--parameters are within the scope of the hand node so that multiple hands can be run at the same time -->
     <rosparam file="$(arg ZEROS)" command="load" />
@@ -108,20 +108,20 @@
   </node>
 
   <!-- Joint States (angles) to Joint Transforms -->
-  <node name="jointState2tf_$(arg NUM)"
+  <node name="jointState2tf_$(arg HAND)"
         pkg="robot_state_publisher"
         type="state_publisher">
-    <remap from="/tf" to="/allegroHand_$(arg NUM)/tf"/>
-    <remap from="/joint_states" to="/allegroHand_$(arg NUM)/joint_states"/>
+    <remap from="/tf" to="/allegro_hand_$(arg HAND)/tf"/>
+    <remap from="/joint_states" to="/allegro_hand_$(arg HAND)/joint_states"/>
   </node>
 
   <!-- Keyboard handler (if arg KEYBOARD is true) -->
-  <node name="keyboard_$(arg NUM)"
+  <node name="keyboard_$(arg HAND)"
         pkg="allegro_hand_keyboard"
         type="allegro_hand_keyboard_node"
         output="screen"
         if="$(arg KEYBOARD)">
-    <remap from="/allegroHand/lib_cmd" to="/allegroHand_$(arg NUM)/lib_cmd"/>
+    <remap from="/allegroHand/lib_cmd" to="/allegro_hand_$(arg HAND)/lib_cmd"/>
   </node>
 
 </launch>
