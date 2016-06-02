@@ -39,3 +39,8 @@
 
 /CMakeLists.txt
 /in_hand_manipulation/
+/trac_ik/
+/urlg_msgs/
+/urlg_robot_control/
+/urlg_robots_gazebo/
+/urlg_robots_ik_solvers/
